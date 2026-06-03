@@ -1,0 +1,24 @@
+module bcd_encoder(
+    input [9:0] D,
+    output reg [3:0] BCD
+);
+
+always @(*) begin
+
+    case(D)
+        10'b0000000001: BCD = 4'b0000; // D0
+        10'b0000000010: BCD = 4'b0001; // D1
+        10'b0000000100: BCD = 4'b0010; // D2
+        10'b0000001000: BCD = 4'b0011; // D3
+        10'b0000010000: BCD = 4'b0100; // D4
+        10'b0000100000: BCD = 4'b0101; // D5
+        10'b0001000000: BCD = 4'b0110; // D6
+        10'b0010000000: BCD = 4'b0111; // D7
+        10'b0100000000: BCD = 4'b1000; // D8
+        10'b1000000000: BCD = 4'b1001; // D9
+        default:        BCD = 4'b0000;
+    endcase
+
+end
+
+endmodule
